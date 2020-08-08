@@ -6,7 +6,7 @@
 /*   By: wacame <wacame@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/04 17:53:47 by wacame            #+#    #+#             */
-/*   Updated: 2020/08/08 18:45:24 by wacame           ###   ########.fr       */
+/*   Updated: 2020/08/08 19:33:04 by ebulwer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,22 +14,22 @@
 
 static int		ft_strcmp(const char *str1, const char *str2)
 {
-  	unsigned int	i;
-  	unsigned char	*s1;
-  	unsigned char	*s2;
+    unsigned int	i;
+    unsigned char	*s1;
+    unsigned char	*s2;
 
-  	i = 0;
-  	s1 = (unsigned char *)str1;
-  	s2 = (unsigned char *)str2;
-  	while (s1[i] && s2[i])
-	  {
-		    if (s1[i] != s2[i])
-	  		    return (s1[i] - s2[i]);
-    		i++;
-  	}
-  	if ((s1[i] && !s2[i]) || (!s1[i] && s2[i]))
-    		return (s1[i] - s2[i]);
-  	return (0);
+    i = 0;
+    s1 = (unsigned char *)str1;
+    s2 = (unsigned char *)str2;
+    while (s1[i] && s2[i])
+    {
+        if (s1[i] != s2[i])
+            return (s1[i] - s2[i]);
+        i++;
+    }
+    if ((s1[i] && !s2[i]) || (!s1[i] && s2[i]))
+        return (s1[i] - s2[i]);
+    return (0);
 }
 
 
@@ -73,15 +73,17 @@ files         *ls_new_mass(char *Name)
     return (grid);
 }
 
-files       *ls_mass_chng(files *Grid, int Summ)
+files       *ls_mass_chng(files *Grid, int Summ, char *name)
 {
     files   buff;
     files   *grd;
     int     i;
     int     j;
+    DIR     *dr;
 
     i = 0;
     j = 0;
+    dr = opendir(name);
     if(Grid == NULL)
         return (NULL);
     grd = Grid;
@@ -104,5 +106,6 @@ files       *ls_mass_chng(files *Grid, int Summ)
     while(j < Summ)
         printf("%s ", grd[j++].dir->d_name);
     printf("\n");
+    closedir(dr);
     return (grd);
 }

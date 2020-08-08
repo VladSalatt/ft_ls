@@ -38,7 +38,6 @@ int     main(void)
     files   *Grid;
 
     i = ls_files_summ(".");
-    Grid = ls_mass_chng(ls_new_mass("./"), i);
+    Grid = ls_mass_chng(ls_new_mass("./"), i, "./");
     free(Grid);
-    return (0);
 }

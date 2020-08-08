@@ -46,7 +46,7 @@ char    *ls_flags_list(char **Flags, int Nbr, int Summ);
 int     ls_flag_valid(char* Flags);
 char    *ls_flag_full(char *Flags);
 files   *ls_new_mass(char *Name);
-files   *ls_mass_chng(files *Grid, int Summ);
+files   *ls_mass_chng(files *Grid, int Summ, char *name);
 int     ls_files_summ(char *Name);
 
 
