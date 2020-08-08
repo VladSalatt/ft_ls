@@ -1,24 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   test_ls.c                                          :+:      :+:    :+:   */
+/*   ft_ls_lists.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: wacame <wacame@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/08/07 14:15:04 by wacame            #+#    #+#             */
-/*   Updated: 2020/08/07 14:22:52 by wacame           ###   ########.fr       */
+/*   Created: 2020/08/04 17:53:47 by wacame            #+#    #+#             */
+/*   Updated: 2020/08/08 12:55:19 by wacame           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_ls.h"
 
-int     main(int argc, char** argv)
-{
-    DIR             *drct;
-    struct dirent   *dir;
+//int     ls_r(char* nameFile)
+//{
+  //  DIR     *direct;
 
-    drct = opendir(".");
-    while((dir = readdir(drct)))
-        printf("%s\n", dir->d_name);
-    closedir(drct);
-}
+    //if((direct = opendir(nameFile)))
+    //{
+     //   while()
+    //}
+    //return (0);
+//}
