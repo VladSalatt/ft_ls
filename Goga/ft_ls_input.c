@@ -12,16 +12,6 @@
 
 #include "ft_ls.h"
 
-int     ft_strlen(char *str)
-{
-    int     i;
-
-    i = 0;
-    while (str[i] != '\0')
-        i++;
-    return (i);
-}
-
 void    ls_free_ways(char **Ways, int Nbr)
 {
     int     i;

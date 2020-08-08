@@ -12,24 +12,6 @@
 
 #include "ft_ls.h"
 
-static const char	*ft_strchr(const char *str, int ch)
-{
-	char		*p;
-	char		c;
-
-	c = (char)ch;
-	p = (char *)str;
-	while (*p)
-	{
-		if (*p == c)
-			return (p);
-		p++;
-	}
-	if (c == '\0')
-		return (p);
-	return (NULL);
-}
-
 //длина масссива без символа "0"
 
 static int 	ls_strlen(char	*Str)
@@ -46,6 +28,7 @@ static int 	ls_strlen(char	*Str)
 			k++;
 	return (k);
 }
+
 
 //Валидация ключей
 
@@ -117,6 +100,6 @@ char	*ls_flag_full(char *Flags)
 	if(ls_flag_valid(Flags) == 0)
 		return (0);
 	Flags = ls_new_flag_mass(Flags);
-	printf("%s\n", Flags);
+	//printf("%s\n", Flags);
 	return (Flags);
 }

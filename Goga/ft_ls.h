@@ -13,6 +13,7 @@
 #ifndef FT_LS
 #define FT_LS
 
+#include "../libft/libft.h"
 #include <time.h>
 //#include <grd.h>
 #include <sys/stat.h>
@@ -33,7 +34,6 @@ typedef struct ft_ls
 
 enum	{ERRNO, USAGE, MALL_ERR};
 
-int     ft_strlen(char *str);
 int     ft_print_ways(char **Ways, int Summ);
 int     ls_ways_nbr(char **Ways, int Nbr);
 char    **ls_ways_list(char **ways, int Nbr, int Summ);

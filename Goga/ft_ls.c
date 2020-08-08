@@ -36,13 +36,13 @@ int     main(int argc, char** argv)
 {
     int     i;
     char    *Flag_list;
-    char    **Flag_;
+    char    *Flag_;
 
     i = ls_flags_nbr(argv, argc);
     Flag_list = ls_flags_list(argv, argc, i);
     printf("%s\n", Flag_list);
-    if((*Flag_ = ls_flag_full(Flag_list)) != 0)
-        printf("%s\n", *Flag_);
+    if((Flag_ = ls_flag_full(Flag_list)) != 0)
+        printf("%s\n", Flag_);
     free(Flag_list);
     return (0);
 }
