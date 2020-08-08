@@ -6,7 +6,35 @@
 
 #IncludeRegexTransform: 
 
-/Users/ebulwer/projects/ft_ls/main.c
+/Users/ebulwer/projects/ft_ls/ft_ls.h
+libft/libft.h
+/Users/ebulwer/projects/ft_ls/libft/libft.h
+time.h
+-
+sys/stat.h
+-
+sys/types.h
+-
+dirent.h
+-
+unistd.h
+-
 stdio.h
 -
+errno.h
+-
+stdlib.h
+-
+
+/Users/ebulwer/projects/ft_ls/libft/libft.h
+string.h
+-
+stdlib.h
+-
+unistd.h
+-
+
+/Users/ebulwer/projects/ft_ls/main.c
+ft_ls.h
+/Users/ebulwer/projects/ft_ls/ft_ls.h
 

@@ -4,4 +4,4 @@ project(ft_ls)
 set(CMAKE_CXX_STANDARD 14)
 
 add_executable(ft_ls
-        main.c)
+        ft_ls.c)
