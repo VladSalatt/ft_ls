@@ -6,7 +6,7 @@
 /*   By: wacame <wacame@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/08 13:41:53 by wacame            #+#    #+#             */
-/*   Updated: 2020/08/08 13:42:17 by wacame           ###   ########.fr       */
+/*   Updated: 2020/08/09 12:21:39 by wacame           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,36 @@
 //надо разобраться + подключить либу к этому файлу
 //внизу функция ошибок пока что не понятно как она работает
 
-static int			ls_error(char *s, int error)
+static void	ft_putchar_fd(char c, int fd)
+{
+	write(fd, &c, 1);
+}
+
+static void	ft_putstr_fd(char const *s, int fd)
+{
+	if (!s)
+		return ;
+	while (*s)
+	{
+		write(fd, s, 1);
+		s++;
+	}
+}
+
+static void	ft_putendl_fd(char const *s, int fd)
+{
+	if (!s)
+		return ;
+	while (*s)
+	{
+		write(fd, s, 1);
+		s++;
+	}
+	write(fd, "\n", 1);
+}
+
+
+int			ls_error(char *s, int error)
 {
 	if (error == USAGE)
 	{
