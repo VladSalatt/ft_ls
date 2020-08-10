@@ -6,7 +6,7 @@
 /*   By: ebulwer <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/09 16:00:51 by ebulwer           #+#    #+#             */
-/*   Updated: 2020/08/09 16:00:53 by ebulwer          ###   ########.fr       */
+/*   Updated: 2020/08/10 19:26:55 by ebulwer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,6 @@
 # define FT_LS_H
 
 # include <stdio.h>
-# include <unistd.h>
 # include <sys/types.h>
 # include <sys/stat.h>
 # include <dirent.h>
@@ -22,8 +21,6 @@
 # include "libft/libft.h"
 # include <pwd.h>
 # include <grp.h>
-# include <time.h>
-# include <limits.h>
 
 typedef struct      s_flags
 {
