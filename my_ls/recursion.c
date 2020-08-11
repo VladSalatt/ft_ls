@@ -12,11 +12,13 @@
 
 #include "ft_ls.h"
 
+// Получение данных для ХЕДа // Готово
+
 t_file      *ft_get_rootnames(t_file **head, const char *path, t_flags *flags)
 {
-    t_file  *new_file;
+    t_file  *new;
     DIR     *dir;
-    struct dirent   *record;
+    struct dirent   *record;                // Переменная для записи
 
     dir = opendir(path);
     if (!dir)
@@ -26,11 +28,13 @@ t_file      *ft_get_rootnames(t_file **head, const char *path, t_flags *flags)
     }
     while ((record = readdir(dir)) != NULL)
     {
-        if (ft_can_add_hidden_file(record->d_name, flags) == 0)
+        if (ft_can_add_hidden_file(record->d_name, flags) == 0)         // Сработает, если файл скрыт
             continue ;
-        new_file = ft_new_list(new_file, record->d_name, path, flags);
-
+        new = ft_new_list(new, record->d_name, path, flags);           // Создаем новую структуру с метаданными
+        ft_push_back(&(*head), new);                                  // Вставочка
     }
+    closedir(dir);
+    return (*head);
 }
 
 // Рекурсия // в прцоессе
@@ -45,5 +49,7 @@ void    ft_recursion_penetration(const char *path, t_flags *flags, int path_flag
     if (path_flag != 1)
         ft_print_path(path);
     path_flag = 0;
-    head = ft_get_rootnames(&head, path, flags);
+    head = ft_get_rootnames(&head, path, flags);    // Получение данных для ХЕДа
+    ft_sort_list(*head, flags);
+
 }

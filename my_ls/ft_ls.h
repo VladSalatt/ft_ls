@@ -6,7 +6,7 @@
 /*   By: ebulwer <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/09 16:00:51 by ebulwer           #+#    #+#             */
-/*   Updated: 2020/08/10 19:26:55 by ebulwer          ###   ########.fr       */
+/*   Updated: 2020/08/09 16:00:53 by ebulwer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 # define FT_LS_H
 
 # include <stdio.h>
+# include <unistd.h>
 # include <sys/types.h>
 # include <sys/stat.h>
 # include <dirent.h>
@@ -21,6 +22,12 @@
 # include "libft/libft.h"
 # include <pwd.h>
 # include <grp.h>
+# include <time.h>
+# include <limits.h>
+
+# define T_FILE 1               // Использовал для макросов S_ISREG ...
+# define T_DIR  2
+# define T_LINK 3
 
 typedef struct      s_flags
 {
@@ -40,14 +47,24 @@ typedef struct      s_file
     char            *name;
     char            *path;
     int             type;
-    char            *time;
+    char            *date;
     char            *username;
     char            *groupname;
     char            *chmod;
     char            *size;
+    char            *numlink;
+    int             blocks;
+    int             last_modif;
+    int             last_access;
     struct s_file    *next;
 }                   t_file;
 
+void    ft_content_cpy(t_file *src, t_file *dst);
+void    ft_sort_list(t_file **head, t_flags *flags);
+void    ft_push_back(t_file **head, t_file *new);
+void    ft_tools(char *str, mode_t m);
+char    *ft_getchmod(mode_t *mode);
+void    ft_whats_tools(t_file **new, mode_t mode, uid_t uid, gid_t gid);
 int     ft_is_it_flag(const char *s);
 int     ft_putflag(const char *av, t_flags *flags);
 int     ft_find_flags(const char **av, int ac, t_flags *flags);
@@ -56,8 +73,9 @@ static int      ft_only_flags(const char **av);
 void    ft_recursion_penetration(const char *path, t_flags *flags, int path_flag);
 void    ft_print_path(const char *path);
 t_file      *ft_get_rootnames(t_file **head, const char *path, t_flags *flags);
-int     ft_can_add_hidden_file(const char *str, t_flags *flags)
-
+int     ft_can_add_hidden_file(const char *str, t_flags *flags);
+t_file    *ft_new_list(t_file *new, const char *name, const char *path, t_flags *flags);
+int     ft_whats_specific(const char *str, t_file **new, t_flags *flags);
 
 
 

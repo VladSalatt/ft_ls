@@ -31,7 +31,7 @@ int      ft_only_flags(const char **av)
     i = 1;
     while (av[i])
     {
-        if (is_it_flag(av[i]))
+        if (ft_is_it_flag(av[i]))
             i++;
         else
             return (0);
@@ -80,7 +80,7 @@ int     ft_putflag(const char *av, t_flags *flags)
     int     f;
 
     i = 1;
-    f = valid_flag(av, "lRatrufg");
+    f = ft_valid_flag(av, "lRatrufg");
     if (f == 2)
         return (2);                                            // Если валидация вернет "2", то и прога дропнется с кодом "2"
     if (f)
@@ -114,7 +114,7 @@ int     ft_find_flags(const char **av, int ac, t_flags *flags)
     while (i <= ac)
     {
         if (ft_is_it_flag(av[i]) && f == 0)
-            m = ft_putflag(av[i], flags);                            //Если m == 2, то putflag закончилась ошибкой
+            m = ft_putflag(av[i], flags);                            //Если m == 2, то ft_putflag закончилась ошибкой
         else
             f++;
         if (ft_is_it_flag(av[i]) && f != 0)
