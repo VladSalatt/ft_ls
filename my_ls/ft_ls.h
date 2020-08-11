@@ -59,6 +59,8 @@ typedef struct      s_file
     struct s_file    *next;
 }                   t_file;
 
+char			*ft_strencut(char *str, int n, char *choice);
+char    *ft_strncut(char *str, int n, char *choice);
 void    ft_content_cpy(t_file *src, t_file *dst);
 void    ft_sort_list(t_file **head, t_flags *flags);
 void    ft_push_back(t_file **head, t_file *new);
