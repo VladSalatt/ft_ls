@@ -53,7 +53,9 @@ char    *ft_getchmod(mode_t mode)
     else if (mode & S_ISVTX)
         str[9] = 'T';
     else if (mode & S_IXOTH)
-        str[9] = '-';
+        str[9] = 'x';
+	else
+		str[9] = '-';
     str[10] = '\0';
     return (str);
 }

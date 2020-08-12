@@ -29,3 +29,31 @@ void    ft_content_cpy(t_file *src, t_file *dst)
 	dst->chmod = src->chmod;
 	dst->blocks = src->blocks;
 }
+
+// Подсчет тотала // готово
+
+char 	*ft_calculate_total(t_file **head)
+{
+	t_file 	*tmp;
+	int 	total;
+
+	tmp = *head;
+	total = 0;
+	while (tmp != NULL)
+	{
+		total += tmp->blocks;
+		tmp = tmp->next;
+	}
+	return (ft_itoa(total));
+}
+ // Печатает тотал // Готово
+
+void 	ft_print_total(t_file **head)
+{
+	char 	*total;
+
+	total = ft_calculate_total(head);
+	ft_putstr("total ");
+	ft_putendl(total);
+	ft_strdel(&total);
+}

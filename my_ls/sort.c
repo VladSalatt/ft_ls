@@ -97,7 +97,7 @@ void 	ft_t_flag_sort(t_file **head, int n)
 		{
 			p1 = h;
 			p2 = h->next;
-			if (n == 1 ? p1->last_modif < p2->last_modif : p1->last_modif > p2->last_modif)f
+			if (n == 1 ? p1->last_modif < p2->last_modif : p1->last_modif > p2->last_modif)
 			{
 				ft_lstswap(p1, p2);
 				f++;

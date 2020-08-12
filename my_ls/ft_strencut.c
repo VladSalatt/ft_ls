@@ -51,14 +51,15 @@ static char		*first(char *str, int n)
 
 char			*ft_strencut(char *str, int n, char *choice)
 {
-    if (str == NULL)
-        return (NULL);
-    if ((int)ft_strlen(str) < n || n < 0)
-        return (NULL);
-    if ((int)ft_strlen(str) == n)
-        return (NULL);
-    if (ft_strcmp(choice, "first") == 0)
-        return (first(str, n));
-    else if (ft_strcmp(choice, "second") == 0)
-        return (second(str, n));
-    return (NULL);
+	if (str == NULL)
+		return (NULL);
+	if ((int) ft_strlen(str) < n || n < 0)
+		return (NULL);
+	if ((int) ft_strlen(str) == n)
+		return (NULL);
+	if (ft_strcmp(choice, "first") == 0)
+		return (first(str, n));
+	else if (ft_strcmp(choice, "second") == 0)
+		return (second(str, n));
+	return (NULL);
+}

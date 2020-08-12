@@ -46,3 +46,27 @@ t_file    *ft_new_list(t_file *new, const char *name, const char *path, t_flags 
     ft_strdel(&full_name);
     return (new);
 }
+
+t_file 	*ft_struct_filenames(t_file **head, const char **av, const char *path, t_flags *flags)
+{
+	t_file 	*new;
+	int 	i;
+
+	i = 1;
+	while (av[i] != NULL)
+	{
+		if (ft_is_it_flag((const char *)av[i]) == 1)
+		{
+			i++;
+			continue ;
+		}
+		if ((new = ft_new_list(new, av[i], (const char *)path, flags)) == NULL)
+		{
+			i++;
+			continue ;
+		}
+		ft_push_back(&(*head), new);
+		i++;
+	}
+	return (*head);
+}

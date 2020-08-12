@@ -22,23 +22,6 @@ int     ft_is_it_flag(const char *s)
         return (0);
 }
 
- // Тут только флаги? // готово
-
-int      ft_only_flags(const char **av)
-{
-    int     i;
-
-    i = 1;
-    while (av[i])
-    {
-        if (ft_is_it_flag(av[i]))
-            i++;
-        else
-            return (0);
-    }
-    return (1);
-}
-
 // Валидация флага, то есть, если введены некорректные флаги, то он напечатает ОШИБКУ // готово
 
 int     ft_valid_flag(const char *s, char *v)
