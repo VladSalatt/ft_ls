@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_ls.h"
+#include "../includes/ft_ls.h"
 
 // Получение данных для ХЕДа // Готово
 
@@ -23,7 +23,7 @@ t_file      *ft_get_rootnames(t_file **head, const char *path, t_flags *flags)
     dir = opendir(path);
     if (!dir)
     {
-        ls_error((char *)path, 0);   // ЗАМЕНИТЬ Ф-ИЕЙ ОШИБКИ
+        ls_error((char *)path, 0);
         return (NULL);
     }
     while ((record = readdir(dir)) != NULL)

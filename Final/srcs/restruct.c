@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_ls.h"
+#include "../includes/ft_ls.h"
 
 t_file 		*ft_restruct_size(t_file **head)
 {
@@ -22,7 +22,7 @@ t_file 		*ft_restruct_size(t_file **head)
 	maxlen = 0;
 	while (tmp != NULL)
 	{
-		if ((len = (int)ft_strlen(tmp->size) > maxlen))
+		if ((len = (int)ft_strlen(tmp->size)) > maxlen)
 			maxlen = len;
 		tmp = tmp->next;
 	}
@@ -97,7 +97,7 @@ t_file 		*ft_restruct_numlink(t_file **head)
 	maxlen = 0;
 	while (tmp != NULL)
 	{
-		if ((len = (int)ft_strlen(tmp->numlink) > maxlen))
+		if ((len = (int)ft_strlen(tmp->numlink)) > maxlen)
 			maxlen = len;
 		tmp = tmp->next;
 	}

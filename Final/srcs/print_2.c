@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_ls.h"
+#include "../includes/ft_ls.h"
 
 void    ft_whats_tools(t_file **new, mode_t mode, uid_t uid, gid_t gid)
 {
