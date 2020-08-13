@@ -6,5 +6,5 @@ C_FLAGS = -g -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacO
 
 C_DEFINES = 
 
-C_INCLUDES = 
+C_INCLUDES = -I/Users/ebulwer/projects/my_ls/. -I/Users/ebulwer/projects/my_ls/libft 
 

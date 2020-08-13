@@ -59,6 +59,7 @@ typedef struct      s_file
     struct s_file    *next;
 }                   t_file;
 
+t_file 	*ls_free_list(t_file **List_to_free);
 void 	ft_init(t_file *head, char **av, t_flags *flags);
 int 	ft_is_only_arg(t_file *head);
 void 	ft_print_without_dir(t_file **head);

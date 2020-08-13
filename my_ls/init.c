@@ -50,5 +50,6 @@ void 	ft_init(t_file *head, char **av, t_flags *flags)
 		}
 		tmp = tmp->next;
 	}
-	/* Опять фри структуры */
+	if (head != NULL)
+		ls_free_list(&head);
 }
