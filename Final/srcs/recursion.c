@@ -16,14 +16,14 @@
 
 t_file      *ft_get_rootnames(t_file **head, const char *path, t_flags *flags)
 {
-    t_file  *new;
-    DIR     *dir;
+    t_file  			*new;
+    DIR     		*dir;
     struct dirent   *record;                // Переменная для записи
 
     dir = opendir(path);
     if (!dir)
     {
-        perror("\ndiropen");   // ЗАМЕНИТЬ Ф-ИЕЙ ОШИБКИ
+        ls_error((char *)path, 0);   // ЗАМЕНИТЬ Ф-ИЕЙ ОШИБКИ
         return (NULL);
     }
     while ((record = readdir(dir)) != NULL)
@@ -48,7 +48,7 @@ char 	*ft_get_path(char *name, char *path)
 	return (tmp2);
 }
 
-// Рекурсия // в прцоессе
+// Рекурсия // Готово
 
 void    ft_recursion_penetration(const char *path, t_flags *flags, int path_flag)
 {
@@ -74,8 +74,8 @@ void    ft_recursion_penetration(const char *path, t_flags *flags, int path_flag
 		}
 		tmp = tmp->next;
 	}
-//    if (head != NULL)
-    	/* фри структуры, которая примет хед */
+	if (head != NULL)
+		ls_free_list(&head);
 }
 
 void 	ft_recursion_init(t_file *head, const char **av, t_flags *flags)
@@ -100,5 +100,6 @@ void 	ft_recursion_init(t_file *head, const char **av, t_flags *flags)
 		}
 		tmp = tmp->next;
 	}
-	/* фришить структуру */
+	if (head != NULL)
+		ls_free_list(&head);
 }

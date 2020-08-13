@@ -35,7 +35,7 @@ void    ft_print_path(const char *path)
     ft_putchar('\n');
 }
 
-// Название говорит само за себя // В процессе, нужно зафришить (написать для этого функцию)
+// Название говорит само за себя // ГОТОВО!!!
 
 void 	ft_print_dir(char *path, t_flags *flags)
 {
@@ -45,6 +45,7 @@ void 	ft_print_dir(char *path, t_flags *flags)
 	head = ft_get_rootnames(&head, path, flags);
 	ft_sort_list(&head, flags);
 	ft_print_struct(&head, flags);
+	ls_free_list(&head);
 }
 
 void 	ft_print_struct(t_file **head, t_flags *flags)
@@ -67,7 +68,7 @@ void 	ft_print_struct(t_file **head, t_flags *flags)
 			tmp = tmp->next;
 		}
 	}
-	ft_putchar('\n');
+	//ft_putchar('\n');
 }
 
 void 	ft_print_without_dir(t_file **head)
@@ -81,5 +82,5 @@ void 	ft_print_without_dir(t_file **head)
 			ft_putendl(tmp->name);
 		tmp = tmp->next;
 	}
-	ft_putchar('\n');
+	//ft_putchar('\n');
 }

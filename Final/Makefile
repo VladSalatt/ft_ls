@@ -25,6 +25,8 @@ SRCS_NAME = flags.c \
 			ft_ls.c \
 			ft_strncut.c \
 			ft_strencut.c \
+			ft_free_list.c \
+			ft_ls_errors.c \
 			init.c \
 			print.c \
 			print_2.c \

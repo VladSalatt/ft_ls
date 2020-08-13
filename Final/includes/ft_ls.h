@@ -24,10 +24,13 @@
 # include <grp.h>
 # include <time.h>
 # include <limits.h>
+# include <errno.h>
 
 # define T_FILE 1               // Использовал для макросов S_ISREG ...
 # define T_DIR  2
 # define T_LINK 3
+
+enum	{ERRNO, USAGE, MALL_ERR};
 
 typedef struct      s_flags
 {
@@ -59,6 +62,8 @@ typedef struct      s_file
     struct s_file    *next;
 }                   t_file;
 
+int		ls_error(char *s, int error);
+t_file 	*ls_free_list(t_file **List_to_free);
 void 	ft_init(t_file *head, char **av, t_flags *flags);
 int 	ft_is_only_arg(t_file *head);
 void 	ft_print_without_dir(t_file **head);
@@ -68,11 +73,11 @@ void 	ft_print_dir(char *path, t_flags *flags);
 char 	*ft_get_path(char *name, char *path);
 void 	ft_print_total(t_file **head);
 void 	ft_print_struct(t_file **head, t_flags *flags);
-t_file		*ft_restruct(t_file **head);
+t_file	*ft_restruct(t_file **head);
 char 	*ft_addsymbend(char *str, char c, int num);
 char 	*ft_addsymb(char *str, char c, int num);
 void 	ft_print_flag_l(t_file **head, t_flags *flags);
-char			*ft_strencut(char *str, int n, char *choice);
+char	*ft_strencut(char *str, int n, char *choice);
 char    *ft_strncut(char *str, int n, char *choice);
 void    ft_content_cpy(t_file *src, t_file *dst);
 void    ft_sort_list(t_file **head, t_flags *flags);

@@ -101,7 +101,7 @@ char    *ft_get_date(long int sec)
     }
 }
 
-// Заполняем метаданные об объекте в структуру. Берем их из str и интерпретируем в new // Готово
+// Заполняем метаданные об объекте в структуру. Берем их из str и интерпретируем в new // Вставить ошибки
 
 int     ft_whats_specific(const char *str, t_file **new, t_flags *flags)
 {
@@ -110,7 +110,7 @@ int     ft_whats_specific(const char *str, t_file **new, t_flags *flags)
 
     if (lstat(str, &buf) < 0)           // Закидываем данные в буфер
     {
-        printf("error");
+        ls_error((char *)str, 0);
         return (0);
     }
     ft_whats_tools(new, buf.st_mode, buf.st_uid, buf.st_gid);

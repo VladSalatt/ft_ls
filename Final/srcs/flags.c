@@ -22,7 +22,7 @@ int     ft_is_it_flag(const char *s)
         return (0);
 }
 
-// Валидация флага, то есть, если введены некорректные флаги, то он напечатает ОШИБКУ // готово
+// Валидация флага, то есть, если введены некорректные флаги, то он напечатает ОШИБКУ // Вставить обработку ошибки
 
 int     ft_valid_flag(const char *s, char *v)
 {
@@ -45,7 +45,8 @@ int     ft_valid_flag(const char *s, char *v)
         }
         if (f == 0)
         {
-            printf("error");
+            s = s + i;
+            ls_error((char *)s, USAGE);
             exit(1);
         }
         i++;
@@ -84,6 +85,13 @@ int     ft_putflag(const char *av, t_flags *flags)
     return (1);
 }
 
+void 	ft_dis_flags(t_flags *flags)
+{
+	flags->a = 1;
+	flags->r = 0;
+	flags->t = 0;
+}
+
 // Ищет флаги и кладет флаги в структуру или выдает ОШИБКУ // in work
 
 int     ft_find_flags(const char **av, int ac, t_flags *flags)
@@ -99,12 +107,14 @@ int     ft_find_flags(const char **av, int ac, t_flags *flags)
         if (ft_is_it_flag(av[i]) && f == 0)
             m = ft_putflag(av[i], flags);                            //Если m == 2, то ft_putflag закончилась ошибкой
         else
-            f++;
+            f++; 
         if (ft_is_it_flag(av[i]) && f != 0)
             printf("error\n");
         if (m == 2)
             f++;
         i++;
     }
+    if (flags->f == 1)
+    	ft_dis_flags(flags);
     return (1);
 }

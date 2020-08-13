@@ -22,7 +22,7 @@ t_file 		*ft_restruct_size(t_file **head)
 	maxlen = 0;
 	while (tmp != NULL)
 	{
-		if ((len = ft_strlen(tmp->size) > (size_t)maxlen))
+		if ((len = (int)ft_strlen(tmp->size) > maxlen))
 			maxlen = len;
 		tmp = tmp->next;
 	}
@@ -97,7 +97,7 @@ t_file 		*ft_restruct_numlink(t_file **head)
 	maxlen = 0;
 	while (tmp != NULL)
 	{
-		if ((len = ft_strlen(tmp->numlink) > (size_t)maxlen))
+		if ((len = (int)ft_strlen(tmp->numlink) > maxlen))
 			maxlen = len;
 		tmp = tmp->next;
 	}
