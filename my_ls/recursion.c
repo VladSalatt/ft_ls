@@ -16,8 +16,8 @@
 
 t_file      *ft_get_rootnames(t_file **head, const char *path, t_flags *flags)
 {
-    t_file  *new;
-    DIR     *dir;
+    t_file  			*new;
+    DIR     		*dir;
     struct dirent   *record;                // Переменная для записи
 
     dir = opendir(path);
@@ -48,7 +48,7 @@ char 	*ft_get_path(char *name, char *path)
 	return (tmp2);
 }
 
-// Рекурсия // в прцоессе
+// Рекурсия // Готово
 
 void    ft_recursion_penetration(const char *path, t_flags *flags, int path_flag)
 {

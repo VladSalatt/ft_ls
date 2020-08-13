@@ -22,7 +22,7 @@ int     ft_is_it_flag(const char *s)
         return (0);
 }
 
-// Валидация флага, то есть, если введены некорректные флаги, то он напечатает ОШИБКУ // готово
+// Валидация флага, то есть, если введены некорректные флаги, то он напечатает ОШИБКУ // Вставить обработку ошибки
 
 int     ft_valid_flag(const char *s, char *v)
 {
@@ -84,6 +84,13 @@ int     ft_putflag(const char *av, t_flags *flags)
     return (1);
 }
 
+void 	ft_dis_flags(t_flags *flags)
+{
+	flags->a = 1;
+	flags->r = 0;
+	flags->t = 0;
+}
+
 // Ищет флаги и кладет флаги в структуру или выдает ОШИБКУ // in work
 
 int     ft_find_flags(const char **av, int ac, t_flags *flags)
@@ -106,5 +113,7 @@ int     ft_find_flags(const char **av, int ac, t_flags *flags)
             f++;
         i++;
     }
+    if (flags->f == 1)
+    	ft_dis_flags(flags);
     return (1);
 }

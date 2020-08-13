@@ -101,7 +101,7 @@ char    *ft_get_date(long int sec)
     }
 }
 
-// Заполняем метаданные об объекте в структуру. Берем их из str и интерпретируем в new // Готово
+// Заполняем метаданные об объекте в структуру. Берем их из str и интерпретируем в new // Вставить ошибки
 
 int     ft_whats_specific(const char *str, t_file **new, t_flags *flags)
 {
