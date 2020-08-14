@@ -1,3 +1,0 @@
-/Users/ebulwer/projects/my_ls/cmake-build-debug/CMakeFiles/rebuild_cache.dir
-/Users/ebulwer/projects/my_ls/cmake-build-debug/CMakeFiles/edit_cache.dir
-/Users/ebulwer/projects/my_ls/cmake-build-debug/CMakeFiles/my_ls.dir
