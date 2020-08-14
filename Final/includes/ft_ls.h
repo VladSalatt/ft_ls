@@ -62,6 +62,7 @@ typedef struct      s_file
     struct s_file    *next;
 }                   t_file;
 
+void    ft_print_error(const char *av);
 int		ls_error(char *s, int error);
 t_file 	*ls_free_list(t_file **List_to_free);
 void 	ft_init(t_file *head, char **av, t_flags *flags);

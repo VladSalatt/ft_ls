@@ -12,6 +12,25 @@
 
 #include "../includes/ft_ls.h"
 
+void 		ft_puterror(const char *str)
+{
+	if (!str)
+		return ;
+	while (*str)
+	{
+		write(2, str, 1);
+		str++;
+	}
+}
+
+void        ft_print_error(const char *av)
+{
+	ft_puterror("ft_ls: ");
+	ft_puterror(av);
+	ft_puterror(": No such file or directory");
+	write(1, "\n", 1);
+}
+
 int			ls_error(char *s, int error)
 {
 	if (error == USAGE)

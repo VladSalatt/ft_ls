@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_ls.h"
+#include "../includes/ft_ls.h"
 
 // Флаг ли это? // готово
 
@@ -92,7 +92,7 @@ void 	ft_dis_flags(t_flags *flags)
 	flags->t = 0;
 }
 
-// Ищет флаги и кладет флаги в структуру или выдает ОШИБКУ // in work
+// Ищет флаги и кладет флаги в структуру или выдает ОШИБКУ // Готово
 
 int     ft_find_flags(const char **av, int ac, t_flags *flags)
 {
@@ -107,9 +107,9 @@ int     ft_find_flags(const char **av, int ac, t_flags *flags)
         if (ft_is_it_flag(av[i]) && f == 0)
             m = ft_putflag(av[i], flags);                            //Если m == 2, то ft_putflag закончилась ошибкой
         else
-            f++; 
-        if (ft_is_it_flag(av[i]) && f != 0)
-            printf("error\n");
+            f++;
+        if (ft_is_it_flag(av[i]) && f != 0)                        // Защита от повторного введения флагов, после 3 аргуемента
+            ft_print_error(av[i]);
         if (m == 2)
             f++;
         i++;
